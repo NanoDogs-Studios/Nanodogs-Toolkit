@@ -38,11 +38,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Ambient_Occlusion_Map:
-        m_Texture: {fileID: 2800000, guid: 83b2c0f366722a64ab6f1d80d785146a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 62df077e390421440ba2265100e00ef2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: be371722c325be14ab5009527b82a570, type: 3}
+        m_Texture: {fileID: 2800000, guid: 17bd6640a3923d543a179061b65ce2f6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -78,7 +78,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
-        m_Texture: {fileID: 2800000, guid: 08d7c90bfbfaf5a4e96287692be9d149, type: 3}
+        m_Texture: {fileID: 2800000, guid: 38b716b65ec77994fa569996cf80eb5c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -134,7 +134,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Reflection_Distortion: 0.38
-    - _Smoothness: 2
+    - _Smoothness: 0.18
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -151,17 +151,17 @@ Material:
     - _Ambient_Occlusion_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Ambient_Occlusion_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.13528073, g: 0.5, b: 0, a: 1}
     - _Color_Map_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Color_Map_Offset_1: {r: 0, g: 0, b: 0, a: 0}
-    - _Color_Map_Tiling: {r: 2, g: 2, b: 0, a: 0}
+    - _Color_Map_Tiling: {r: 0.25, g: 0.25, b: 0, a: 0}
     - _Color_Map_Tiling_1: {r: 1, g: 1, b: 0, a: 0}
     - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emission_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Emission_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _Normal_Map_Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Normal_Map_Tiling: {r: 2, g: 2, b: 0, a: 0}
+    - _Normal_Map_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

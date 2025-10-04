@@ -1,0 +1,20 @@
+{
+
+  "name": "com.nanodogs.toolkit",
+
+  "displayName": "Nanodogs Toolkit",
+
+  "description": "Nanodogs Toolkit is a set of unity tools that help Nanodogs build their game. With the Aurora Modding SDK, you to can create content for Nanodogs's Games!'",
+
+  "version": "0.1.2",
+
+  "dependencies": {
+    "com.unity.addressables": "1.19.19"
+  },
+
+  "author": {
+    "name": "Nanodogs Studios",
+    "email": "nanodogs.inquires@gmail.ccom",
+    "url": "https://nanodogs-studios.github.io"
+  }
+}

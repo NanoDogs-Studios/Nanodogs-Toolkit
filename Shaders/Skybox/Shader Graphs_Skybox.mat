@@ -52,13 +52,17 @@ Material:
     m_Ints: []
     m_Floats:
     - _GroundBlend: 1
-    - _HorizonBlend: 2
+    - _HorizonBlend: 4.46
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SkyBlend: 0.71
+    - _SkyBlend: 0.25
+    - _Sun_Hardness: 1000
+    - _Sun_Size: 1
     m_Colors:
     - _HorizonColor: {r: 0.61720675, g: 0.69387203, b: 0.7379107, a: 1}
-    - _SkyColor: {r: 0, g: 0.16056238, b: 0.5849056, a: 1}
+    - _SkyColor: {r: 0.06354574, g: 0.22166784, b: 0.6415094, a: 1}
+    - _Sun_Color: {r: 11.984315, g: 11.984315, b: 11.984315, a: 1}
+    - _Sun_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _VoidColor: {r: 0.3490566, g: 0.28484336, b: 0.24203454, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace Nanodogs.UniversalScripts
 {
-    public class LevelLoadTrigger : MonoBehaviour
+    public class LevelLoadTrigger : NanoTrigger
     {
         public string levelName;
 
@@ -11,8 +11,8 @@ namespace Nanodogs.UniversalScripts
         {
             if (other.CompareTag("Player"))
             {
-                // TODO: use a load manager script to handle loading screens, transitions, etc.
-                Debug.Log("Loading level: " + levelName);
+                Nanoloader.LoadLevel(levelName);
+                Destroy(gameObject);
             }
         }
     }

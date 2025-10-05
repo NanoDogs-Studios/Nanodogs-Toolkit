@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// © 2025 Nanodogs Studios. All rights reserved.
+
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Nanodogs.UniversalScripts

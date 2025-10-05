@@ -1,3 +1,5 @@
+// © 2025 Nanodogs Studios. All rights reserved.
+
 using Nanodogs.UniversalScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;

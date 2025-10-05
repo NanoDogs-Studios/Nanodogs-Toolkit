@@ -1,3 +1,5 @@
+// © 2025 Nanodogs Studios. All rights reserved.
+
 using System.Collections.Generic;
 using System.Net;
 using System.IO;

@@ -1,4 +1,4 @@
-// � 2025 Nanodogs Studios. All rights reserved.
+﻿// © 2025 Nanodogs Studios. All rights reserved.
 
 using System;
 using UnityEditor;
@@ -10,7 +10,7 @@ using UnityEditor.SceneManagement;
 
 namespace Nanodogs.Toolkit
 {
-    public class NanodogsToolkitPlayerManagerEditor : EditorWindow
+    public class NanodogsToolkitPlayerManagerEditor : NDSEditorWindow
     {
         public NanoPlayerTemplate playerTemplate;
 
@@ -20,7 +20,7 @@ namespace Nanodogs.Toolkit
             GetWindow<NanodogsToolkitPlayerManagerEditor>("NanoPlayer Manager");
         }
 
-        private void OnGUI()
+        new public void OnGUI()
         {
             EditorGUILayout.Space(15);
             GUILayout.Label("Choose your player template", EditorStyles.boldLabel);
@@ -40,6 +40,8 @@ namespace Nanodogs.Toolkit
                     CreateSpawnpoint();
                 }
             }
+
+            base.OnGUI();
         }
 
         private void CreateSpawnpoint()

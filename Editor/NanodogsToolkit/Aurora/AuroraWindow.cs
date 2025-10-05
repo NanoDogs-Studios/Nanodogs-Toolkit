@@ -1,3 +1,6 @@
+// © 2025 Nanodogs Studios. All rights reserved.
+
+using Nanodogs.Toolkit;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
@@ -5,7 +8,7 @@ using UnityEngine;
 
 namespace Nanodogs.Aurora
 {
-    public class AuroraWindow : EditorWindow
+    public class AuroraWindow : NDSEditorWindow
     {
         private List<string> scenesInProject = new List<string>(); // List of all scenes in the project
         private List<bool> scenesToInclude = new List<bool>(); // List of bools to track which scenes to include in the box
@@ -32,7 +35,7 @@ namespace Nanodogs.Aurora
             }
         }
 
-        private void OnGUI()
+        new public void OnGUI()
         {
             GUILayout.Label("Mod Creation System", EditorStyles.boldLabel);
 
@@ -56,6 +59,8 @@ namespace Nanodogs.Aurora
                 // Open the folder containing the box
                 System.Diagnostics.Process.Start("explorer.exe", "/select," + boxPath.Replace('/', '\\'));
             }
+
+            base.OnGUI();
         }
 
         private void BuildAssetBoxes()

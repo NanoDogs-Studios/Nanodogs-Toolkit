@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Nanodogs.Toolkit;
+using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
 
 namespace Nanodogs.Nanofract
 {
-    public class NanofractWindow : EditorWindow
+    public class NanofractWindow : NDSEditorWindow
     {
         public MeshRenderer renderer;
 
@@ -38,7 +39,7 @@ namespace Nanodogs.Nanofract
             GUILayout.Space(50);
             EditorGUILayout.LabelField("Make sure Read/Write is ON..");
 
-            
+            base.OnGUI();
         }
 
         private void OutputMesh(MeshRenderer mesh, bool Fracture)

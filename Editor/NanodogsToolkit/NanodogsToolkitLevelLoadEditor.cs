@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Nanodogs.Toolkit
 {
-    public class NanodogsToolkitLevelLoadEditor : EditorWindow
+    public class NanodogsToolkitLevelLoadEditor : NDSEditorWindow
     {
         new Vector3 position = Vector3.zero;
         Quaternion rotation = Quaternion.identity;
@@ -21,7 +21,7 @@ namespace Nanodogs.Toolkit
             GetWindow<NanodogsToolkitLevelLoadEditor>("Level Load Trigger Creation");
         }
 
-        private void OnGUI()
+        new public void OnGUI()
         {
             EditorGUILayout.Vector3Field("Position", position);
             EditorGUILayout.Space();
@@ -39,6 +39,8 @@ namespace Nanodogs.Toolkit
             {
                 CreateLevelLoadTrigger();
             }
+
+            base.OnGUI();
         }
 
         private void CreateLevelLoadTrigger()

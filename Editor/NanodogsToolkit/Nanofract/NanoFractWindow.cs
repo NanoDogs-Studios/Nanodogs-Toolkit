@@ -18,7 +18,7 @@ namespace Nanodogs.Nanofract
             GetWindow<NanofractWindow>("Fracture Mesh");
         }
 
-        private void OnGUI()
+        new public void OnGUI()
         {
             GUILayout.Label("FractureObject", EditorStyles.boldLabel);
 

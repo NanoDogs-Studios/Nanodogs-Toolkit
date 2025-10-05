@@ -9,8 +9,7 @@ namespace Nanodogs.Toolkit
         public virtual void OnGUI()
         {
             EditorGUILayout.Space(10);
-            EditorGUILayout.HelpBox("Made with ❤️ by the Nanodogs Team.", MessageType.Info);
-            EditorGUILayout.HelpBox("© 2025 Nanodogs Studios. All rights reserved.", MessageType.Info);
+            EditorGUILayout.HelpBox("Made with ❤️ by the Nanodogs Team.\n© 2025 Nanodogs Studios. All rights reserved.", MessageType.Info);
         }
     }
 }

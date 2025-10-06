@@ -73055,13 +73055,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosion
       objectReference: {fileID: 0}
+    - target: {fileID: 3292820811675442316, guid: a098ee8acac4c2c40903fef86edfd7d1, type: 3}
+      propertyPath: simulationSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292820811675442316, guid: a098ee8acac4c2c40903fef86edfd7d1, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6259379139446876270, guid: a098ee8acac4c2c40903fef86edfd7d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.67
       objectReference: {fileID: 0}
     - target: {fileID: 6259379139446876270, guid: a098ee8acac4c2c40903fef86edfd7d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 6259379139446876270, guid: a098ee8acac4c2c40903fef86edfd7d1, type: 3}
       propertyPath: m_LocalPosition.z

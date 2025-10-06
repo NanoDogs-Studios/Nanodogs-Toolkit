@@ -21,8 +21,8 @@ namespace Nanodogs.API.Explosion
             // Instantiate explosion effect
             if (settings.explosionEffectPrefab != null)
             {
-                GameObject explosionEffect = MonoBehaviour.Instantiate(settings.explosionEffectPrefab, position, Quaternion.identity);
-                MonoBehaviour.Destroy(explosionEffect, 2f); // Destroy effect after 2 seconds
+                GameObject explosionEffect = MonoBehaviour.Instantiate(settings.explosionEffectPrefab, position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+                MonoBehaviour.Destroy(explosionEffect, 4f); // Destroy effect after 2 seconds
             }
             if (useCameraShake)
             {

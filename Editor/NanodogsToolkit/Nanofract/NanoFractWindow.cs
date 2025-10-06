@@ -1,4 +1,6 @@
-﻿using Nanodogs.Toolkit;
+﻿// © 2025 Nanodogs Studios. All rights reserved.
+
+using Nanodogs.Toolkit;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;

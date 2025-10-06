@@ -1,10 +1,11 @@
 // © 2025 Nanodogs Studios. All rights reserved.
 
+using Nanodogs.API.Nanoshake;
 using UnityEngine;
 
 namespace Nanodogs.API.Explosion
 {
-    public class ExplosionAPI : MonoBehaviour
+    public class ExplosionAPI
     {
         public static bool useCameraShake = true;
 
@@ -20,13 +21,13 @@ namespace Nanodogs.API.Explosion
             // Instantiate explosion effect
             if (settings.explosionEffectPrefab != null)
             {
-                GameObject explosionEffect = Instantiate(settings.explosionEffectPrefab, position, Quaternion.identity);
-                Destroy(explosionEffect, 2f); // Destroy effect after 5 seconds
+                GameObject explosionEffect = MonoBehaviour.Instantiate(settings.explosionEffectPrefab, position, Quaternion.identity);
+                MonoBehaviour.Destroy(explosionEffect, 2f); // Destroy effect after 2 seconds
             }
             if (useCameraShake)
             {
                 // Trigger camera shake effect
-                
+                Nanoshake.Nanoshake.Shake(false, null, 1, 1f, 8);
             }
             // Find all colliders in the explosion radius
             Collider[] colliders = Physics.OverlapSphere(position, settings.radius);

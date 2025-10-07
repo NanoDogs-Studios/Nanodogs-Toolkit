@@ -73104,6 +73104,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4380173642783143063, guid: a098ee8acac4c2c40903fef86edfd7d1, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380173642783143063, guid: a098ee8acac4c2c40903fef86edfd7d1, type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6259379139446876270, guid: a098ee8acac4c2c40903fef86edfd7d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.67

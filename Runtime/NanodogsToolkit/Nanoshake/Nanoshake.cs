@@ -70,14 +70,13 @@ namespace Nanodogs.API.Nanoshake
                 float strength = magnitude * fadeCurve.Evaluate(normalizedTime);
                 float noiseTime = Time.time * roughness;
 
-                // Smooth directional offsets via Perlin noise
                 float offsetX = (Mathf.PerlinNoise(seedX, noiseTime) - 0.5f) * 2f;
                 float offsetY = (Mathf.PerlinNoise(seedY, noiseTime) - 0.5f) * 2f;
                 float offsetZ = (Mathf.PerlinNoise(seedZ, noiseTime) - 0.5f) * 2f * 0.3f;
 
                 Vector3 offset = new Vector3(offsetX, offsetY, offsetZ) * strength;
 
-                camera.transform.localPosition = Vector3.Lerp(camera.transform.localPosition, originalPosition + offset, Time.deltaTime * 15f);
+                camera.transform.localPosition = originalPosition + offset;
 
                 yield return null;
             }

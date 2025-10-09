@@ -49,13 +49,13 @@ Material:
     - _Alpha: 0.82
     - _Depth: 1
     - _Displacement: 0.45
-    - _Normal_1_Multiplier: 1
-    - _Normal_2_Multiplier: 1
+    - _Normal_1_Multiplier: 2
+    - _Normal_2_Multiplier: 2
     - _Position_Displacement: 0
     - _Position_Noise_Scale: 2
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.85
+    - _Smoothness: 1
     - _Strength: 0
     - _Wave_Normal_1_Speed: 7
     - _Wave_Normal_2_Speed: 10

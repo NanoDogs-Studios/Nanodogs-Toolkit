@@ -2,19 +2,21 @@ using UnityEngine;
 
 namespace Nanodogs.UniversalScripts
 {
-    /// <summary>
-    /// LadderBehaviour is a placeholder class that inherits from NanoTrigger.
-    /// It can be extended to implement ladder-specific functionality in the future.
-    /// </summary>
     public class LadderBehaviour : NanoTrigger
     {
         private void OnTriggerEnter(Collider other)
         {
-            if(other.CompareTag("Player"))
+            if (other.CompareTag("Player"))
             {
-                Debug.Log("Player got on the ladder");
-                other.attachedRigidbody.useGravity = false;
+                var rb = other.attachedRigidbody;
+                var movement = other.GetComponent<FirstPersonPlayerMovement>();
 
+                rb.useGravity = false;
+                movement.onLadder = true;
+                movement.SetLadderData(transform.forward, GetLadderCenter(other.transform.position));
+
+                // zero out velocity for instant stick
+                rb.linearVelocity = Vector3.zero;
             }
         }
 
@@ -22,10 +24,22 @@ namespace Nanodogs.UniversalScripts
         {
             if (other.CompareTag("Player"))
             {
-                Debug.Log("Player got off the ladder");
-                other.attachedRigidbody.useGravity = true;
+                var rb = other.attachedRigidbody;
+                var movement = other.GetComponent<FirstPersonPlayerMovement>();
 
+                rb.useGravity = true;
+                movement.onLadder = false;
             }
+        }
+
+        private Vector3 GetLadderCenter(Vector3 playerPosition)
+        {
+            // project player's position onto ladder plane to get the center
+            Vector3 ladderPos = transform.position;
+            Vector3 ladderRight = transform.right;
+            Vector3 offset = playerPosition - ladderPos;
+            float distance = Vector3.Dot(offset, ladderRight);
+            return ladderPos + ladderRight * distance * 0f; // always snap to ladder center
         }
     }
 }

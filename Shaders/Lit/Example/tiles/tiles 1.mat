@@ -156,7 +156,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _Color_Map_Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Color_Map_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Color_Map_Tiling: {r: 2, g: 2, b: 0, a: 0}
     - _Emission: {r: 0, g: 1.7812132, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emission_Offset: {r: 0, g: 0, b: 0, a: 0}

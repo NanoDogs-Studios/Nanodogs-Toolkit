@@ -161,6 +161,8 @@ MonoBehaviour:
   jumpForce: 5
   rayDistance: 1.1
   rb: {fileID: 0}
+  moveAction: {fileID: -1913246952516052684, guid: a03cd7f3852b81443aaa5a09de549850, type: 3}
+  jumpAction: {fileID: 5052146654967967306, guid: a03cd7f3852b81443aaa5a09de549850, type: 3}
   onLadder: 0
   ladderClimbSpeed: 7
   ladderStickStrength: 10
@@ -191,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14049acb8677cf849bb9180ea958f06e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Nanodogs.Tooklit::Nanodogs.UniversalScripts.NanoPlayerInteractor
-  interactKey: 101
+  interactKey: {fileID: 2096039558608658515, guid: a03cd7f3852b81443aaa5a09de549850, type: 3}
   interactDistance: 3
   interactableLayer:
     serializedVersion: 2
@@ -347,5 +349,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bdec2f429010344a869aaf78209078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  mouseSensitivity: 250
+  lookAction: {fileID: 5310133040201488025, guid: a03cd7f3852b81443aaa5a09de549850, type: 3}
+  mouseSensitivity: 25
+  gamepadSensitivity: 275
+  smoothTime: 0.075
   playerBody: {fileID: 2759690086907853745}

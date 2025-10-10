@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Nanodogs.UniversalScripts
 {
@@ -6,7 +7,7 @@ namespace Nanodogs.UniversalScripts
     {
         [Header("Interaction Settings")]
         [Tooltip("Key used to interact with objects.")]
-        public KeyCode interactKey = KeyCode.E;
+        public InputActionReference interactKey;
 
         [Tooltip("Maximum distance to interactable objects.")]
         public float interactDistance = 3f;
@@ -34,7 +35,7 @@ namespace Nanodogs.UniversalScripts
                 {
                     // Optional: highlight object here
 
-                    if (Input.GetKeyDown(interactKey))
+                    if (interactKey != null && interactKey.action.WasPerformedThisFrame())
                     {
                         interactable.Interact();
                     }

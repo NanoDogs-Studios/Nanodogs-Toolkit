@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4372157008490153262}
   - component: {fileID: -6456593012921064906}
   - component: {fileID: 2975202628466790550}
+  - component: {fileID: 7904011625370299997}
   m_Layer: 0
   m_Name: First-Person Player Controller
   m_TagString: Player
@@ -160,13 +161,43 @@ MonoBehaviour:
   speed: 6
   jumpForce: 5
   rayDistance: 1.1
-  rb: {fileID: 0}
+  rb: {fileID: 6939925807832477495}
   moveAction: {fileID: -1913246952516052684, guid: a03cd7f3852b81443aaa5a09de549850, type: 3}
   jumpAction: {fileID: 5052146654967967306, guid: a03cd7f3852b81443aaa5a09de549850, type: 3}
   onLadder: 0
   ladderClimbSpeed: 7
   ladderStickStrength: 10
   ladderPushOffForce: 6
+  footstepInterval: 0.45
+  footstepRayDistance: 1.1
+  footstepLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  footstepSurfaces:
+  - tag: Grass
+    clips:
+    - {fileID: 8300000, guid: f2e87c7dfe3733f43afb3025b1789ddd, type: 3}
+    - {fileID: 8300000, guid: 5527480988518f043b3d1a97d1c4fd44, type: 3}
+    - {fileID: 8300000, guid: 6cc5411f1bc53c849813435463fd013d, type: 3}
+    - {fileID: 8300000, guid: a6d4bf24d4d279d44994c65ffe92994d, type: 3}
+  - tag: Stone
+    clips:
+    - {fileID: 8300000, guid: 58ec5ecdec9f61f4eb97b70e4a171479, type: 3}
+    - {fileID: 8300000, guid: 5db33f361b579494b9c799323cdfda2c, type: 3}
+    - {fileID: 8300000, guid: 5e14a4453c6b8d3448f5ce8dad6b7be3, type: 3}
+    - {fileID: 8300000, guid: f3ffbd881b731b248b023c5c62210a30, type: 3}
+  - tag: Wood
+    clips:
+    - {fileID: 8300000, guid: 655f55510b98722459355c3917683794, type: 3}
+    - {fileID: 8300000, guid: f32e12ffdd474c84e90206d242b32567, type: 3}
+  - tag: Snow
+    clips:
+    - {fileID: 8300000, guid: f4bbb401e775ba94e941dda30e348e26, type: 3}
+    - {fileID: 8300000, guid: b86655434e6e2ae4b8defb2243ab27ec, type: 3}
+    - {fileID: 8300000, guid: 78a30002c79cc2a41ae1292a517c482a, type: 3}
+    - {fileID: 8300000, guid: a49a9fdcfa1cadd49ae9b1e51a628caa, type: 3}
+    - {fileID: 8300000, guid: 0cb0aee1914c8cc479de9fd3042f3a06, type: 3}
+    - {fileID: 8300000, guid: 4fe1f04627cc23741b12e14bbc9205fc, type: 3}
 --- !u!114 &-6456593012921064906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +230,103 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   cam: {fileID: 3308917645082229979}
+--- !u!82 &7904011625370299997
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6551193978815046358}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7860781731046425556
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +394,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 1000
+  far clip plane: 10000
   field of view: 90
   orthographic: 0
   orthographic size: 5

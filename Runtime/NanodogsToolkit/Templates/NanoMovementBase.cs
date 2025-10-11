@@ -10,8 +10,8 @@ namespace Nanodogs.UniversalScripts
         public float jumpForce = 5f;
 
 
-        [HideInInspector] public float rayDistance = 1.1f;
-        [HideInInspector] public Rigidbody rb;
+        public float rayDistance = 1.1f;
+        public Rigidbody rb;
 
         private void Start()
         {

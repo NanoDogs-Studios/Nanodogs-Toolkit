@@ -2,10 +2,11 @@
 
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 namespace Nanodogs.UniversalScripts
 {
-    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(Rigidbody), typeof(AudioSource))]
     public class FirstPersonPlayerMovement : NanoMovementBase
     {
         [Header("Input Actions")]
@@ -22,6 +23,17 @@ namespace Nanodogs.UniversalScripts
         private Vector3 ladderForward;
         private Vector3 ladderCenter;
 
+        [Header("Footstep Settings")]
+        public float footstepInterval = 0.4f;
+        public float footstepRayDistance = 1.2f;
+        public LayerMask footstepLayerMask;
+
+        [Tooltip("Assign audio clips based on ground tags (e.g., Stone, Wood, Grass).")]
+        public List<FootstepSurface> footstepSurfaces = new List<FootstepSurface>();
+
+        private AudioSource audioSource;
+        private float footstepTimer;
+
         private void OnEnable()
         {
             if (moveAction != null) moveAction.action.Enable();
@@ -34,12 +46,16 @@ namespace Nanodogs.UniversalScripts
             if (jumpAction != null) jumpAction.action.Disable();
         }
 
+        private void Start()
+        {
+            audioSource = GetComponent<AudioSource>();
+            audioSource.spatialBlend = 1f; // 3D sound
+        }
+
         private void Update()
         {
-            // Ensure input actions are active
             if (moveAction == null || jumpAction == null) return;
 
-            // Read movement input
             Vector2 moveInput = moveAction.action.ReadValue<Vector2>();
             inputDir = (transform.right * moveInput.x + transform.forward * moveInput.y).normalized;
             if (inputDir.magnitude > 1f) inputDir.Normalize();
@@ -50,27 +66,8 @@ namespace Nanodogs.UniversalScripts
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
             }
 
-            // Ladder movement
-            if (onLadder)
-            {
-                float verticalInput = moveInput.y;
-                Vector3 climbVelocity = Vector3.up * verticalInput * ladderClimbSpeed;
-                rb.linearVelocity = climbVelocity;
-
-                // Stick player to ladder center
-                Vector3 toCenter = ladderCenter - transform.position;
-                toCenter.y = 0f;
-                rb.AddForce(toCenter * ladderStickStrength, ForceMode.Acceleration);
-
-                // Push off ladder
-                if (jumpAction.action.WasPressedThisFrame())
-                {
-                    Vector3 pushDir = -ladderForward.normalized;
-                    rb.useGravity = true;
-                    onLadder = false;
-                    rb.AddForce(pushDir * ladderPushOffForce + Vector3.up * 2f, ForceMode.VelocityChange);
-                }
-            }
+            HandleLadder(moveInput);
+            HandleFootsteps(moveInput);
         }
 
         private void FixedUpdate()
@@ -83,10 +80,82 @@ namespace Nanodogs.UniversalScripts
             }
         }
 
+        private void HandleLadder(Vector2 moveInput)
+        {
+            if (!onLadder) return;
+
+            float verticalInput = moveInput.y;
+            Vector3 climbVelocity = Vector3.up * verticalInput * ladderClimbSpeed;
+            rb.linearVelocity = climbVelocity;
+
+            Vector3 toCenter = ladderCenter - transform.position;
+            toCenter.y = 0f;
+            rb.AddForce(toCenter * ladderStickStrength, ForceMode.Acceleration);
+
+            if (jumpAction.action.WasPressedThisFrame())
+            {
+                Vector3 pushDir = -ladderForward.normalized;
+                rb.useGravity = true;
+                onLadder = false;
+                rb.AddForce(pushDir * ladderPushOffForce + Vector3.up * 2f, ForceMode.VelocityChange);
+            }
+        }
+
+        private void HandleFootsteps(Vector2 moveInput)
+        {
+            if (!IsGrounded() || onLadder) return;
+
+            bool isMoving = moveInput.magnitude > 0.1f;
+            if (!isMoving) { footstepTimer = 0f; return; }
+
+            footstepTimer += Time.deltaTime;
+            if (footstepTimer >= footstepInterval)
+            {
+                footstepTimer = 0f;
+                PlayFootstepSound();
+            }
+        }
+
+        private void PlayFootstepSound()
+        {
+            if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, footstepRayDistance, footstepLayerMask))
+            {
+                string surfaceTag = hit.collider.tag;
+                AudioClip clip = GetClipForSurface(surfaceTag);
+                if (clip != null)
+                {
+                    audioSource.PlayOneShot(clip);
+                }
+            }
+        }
+
+        private AudioClip GetClipForSurface(string tag)
+        {
+            foreach (var surface in footstepSurfaces)
+            {
+                if (surface.tag.Equals(tag, System.StringComparison.OrdinalIgnoreCase))
+                {
+                    if (surface.clips.Length > 0)
+                    {
+                        int index = Random.Range(0, surface.clips.Length);
+                        return surface.clips[index];
+                    }
+                }
+            }
+            return null;
+        }
+
         public void SetLadderData(Vector3 forward, Vector3 center)
         {
             ladderForward = forward;
             ladderCenter = center;
         }
+    }
+
+    [System.Serializable]
+    public class FootstepSurface
+    {
+        public string tag;
+        public AudioClip[] clips;
     }
 }

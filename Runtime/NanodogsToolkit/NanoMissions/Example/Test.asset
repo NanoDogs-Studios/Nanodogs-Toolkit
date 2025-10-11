@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11e3684c4e0ff324bb21ea8fb0394978, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: Nanodogs.Tooklit::Nanodogs.API.NanoMissions.NanoMission
+  missionName: Test Mission
+  description: 'a test mission
+
+'
+  state: 0
+  objectives:
+  - {fileID: 11400000, guid: bdade096694e39446991c3c49f32a52a, type: 2}

@@ -7,9 +7,9 @@ namespace Nanodogs.UniversalScripts
 {
     public class NanoTrigger : MonoBehaviour
     {
-        public UnityAction onTriggerEnter;
-        public UnityAction onTriggerExit;
-        public UnityAction onTriggerStay;   
+        public UnityEvent onTriggerEnter;
+        public UnityEvent onTriggerExit;
+        public UnityEvent onTriggerStay;   
 
         private void OnTriggerEnter(Collider other)
         {

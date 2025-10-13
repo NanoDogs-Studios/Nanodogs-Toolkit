@@ -1,48 +1,52 @@
-// © 2025 Nanodogs Studios. All rights reserved.
-
-using System.Collections.Generic;
-using System.Net;
-using System.IO;
-using UnityEngine;
+// NanodogsToolkitImporter.cs (Editor)
 using UnityEditor;
-using UnityEditor.PackageManager;
+using UnityEngine;
+using System.IO;
 
 namespace Nanodogs.Toolkit
 {
     public class NanodogsToolkitImporter
     {
-        public static string baseURL = "Assets/Plugins/Nanodogs-Toolkit/Editor/NanodogsToolkit/Import/";
-
-        [MenuItem("Nanodogs/Importer/Import Modular FPS Package")]
-        private static void importModularFPS()
-        {
-            string package = baseURL + "Modular First Person Controller.unitypackage"; // I wanted to leave out specifics, so this is just a sample link.
-            AssetDatabase.ImportPackage(package, false);
-        }
-        [MenuItem("Nanodogs/Importer/Import Mirror")]
-        private static void importMirror()
-        {
-            string package = baseURL + "Mirror.unitypackage"; // I wanted to leave out specifics, so this is just a sample link.
-            AssetDatabase.ImportPackage(package, false);
-        }
-        [MenuItem("Nanodogs/Importer/Import LowPoly Water")]
-        private static void importLowPolyWater()
-        {
-            string package = baseURL + "Assets/Editor/Import/LowPoly Water.unitypackage"; // I wanted to leave out specifics, so this is just a sample link.
-            AssetDatabase.ImportPackage(package, false);
-        }
-        [MenuItem("Nanodogs/Importer/Import Mesh Combiner")]
-        private static void importMeshCombiner()
-        {
-            string package = baseURL + "Assets/Editor/Import/Mesh Combiner.unitypackage"; // I wanted to leave out specifics, so this is just a sample link.
-            AssetDatabase.ImportPackage(package, false);
-        }
+        // Build full path to the import folder using NanoPath helper
+        private static string BaseImportFolderFullPath => NanoPath.ImportFolderFullPath; // e.g. C:\Project\Assets\Plugins\Nanodogs-Toolkit\Editor\NanodogsToolkit\Import
 
         [MenuItem("Nanodogs/Importer/Import Volumetric Light Beam")]
-        private static void importNewInput()
+        private static void ImportVolumetricLightBeam()
         {
-            string package = baseURL + "Assets/Editor/Import/VolumetricLightBeam.unitypackage"; // I wanted to leave out specifics, so this is just a sample link.
-            AssetDatabase.ImportPackage(package, false);
+            if (string.IsNullOrEmpty(BaseImportFolderFullPath))
+            {
+                Debug.LogError("Import folder path not found. NanoPath failed to resolve toolkit root.");
+                return;
+            }
+
+            string packageFileName = "VolumetricLightBeam.unitypackage";
+            string packageFullPath = Path.Combine(BaseImportFolderFullPath, packageFileName);
+
+            if (!File.Exists(packageFullPath))
+            {
+                Debug.LogError($"Could not find package at: {packageFullPath}");
+                // For debugging, print the dir contents:
+                if (Directory.Exists(BaseImportFolderFullPath))
+                {
+                    Debug.Log("Files in import folder:");
+                    foreach (var f in Directory.GetFiles(BaseImportFolderFullPath))
+                        Debug.Log(" - " + f);
+                }
+                return;
+            }
+
+            AssetDatabase.ImportPackage(packageFullPath, false);
+            Debug.Log("Imported package: " + packageFullPath);
+        }
+
+        // Example other menu item using the same pattern:
+        [MenuItem("Nanodogs/Importer/Import Modular FPS Package")]
+        private static void ImportModularFPS()
+        {
+            if (string.IsNullOrEmpty(BaseImportFolderFullPath)) { Debug.LogError("Import folder path not found."); return; }
+            string packageFullPath = Path.Combine(BaseImportFolderFullPath, "Modular First Person Controller.unitypackage");
+            if (!File.Exists(packageFullPath)) { Debug.LogError("Missing: " + packageFullPath); return; }
+            AssetDatabase.ImportPackage(packageFullPath, false);
         }
     }
 }

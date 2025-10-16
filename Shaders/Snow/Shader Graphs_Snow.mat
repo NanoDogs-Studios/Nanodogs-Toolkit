@@ -60,7 +60,10 @@ Material:
     - _QueueOffset: 0
     - _Smoothness: 0
     - _Snow_Opacity: 1
+    - _UseColor: 0
+    - _UseMap: 1
     m_Colors:
+    - _Base_Color: {r: 0, g: 0, b: 0, a: 1}
     - _Snow_Direction: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

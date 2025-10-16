@@ -55,8 +55,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Metalic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Smoothness: 0
     - _Snow_Opacity: 1
     m_Colors:
     - _Snow_Direction: {r: 1, g: 1, b: 0, a: 0}

@@ -51,7 +51,7 @@ Material:
     - _QueueOffset: 0
     - _Refraction_Scale: 0.5
     - _Refractivity: 0.05
-    - _Transparency: 0.92
+    - _Transparency: 1
     m_Colors:
     - _Normal_Tiling: {r: 0.5, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []

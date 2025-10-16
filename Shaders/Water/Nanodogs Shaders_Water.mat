@@ -51,8 +51,8 @@ Material:
     - _Displacement: 0.45
     - _DistortionScale: 6.3
     - _Foam_Amount: 3
-    - _Foam_Cutoff: 4.79
-    - _Foam_Noise_Scale: 1
+    - _Foam_Cutoff: 18.41
+    - _Foam_Noise_Scale: 0.88
     - _Foam_Speed_Dividen: 250
     - _Normal_1_Multiplier: 2
     - _Normal_2_Multiplier: 2

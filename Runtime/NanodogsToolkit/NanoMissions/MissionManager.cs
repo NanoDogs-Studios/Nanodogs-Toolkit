@@ -12,6 +12,9 @@ namespace Nanodogs.API.NanoMissions
 
         public void StartMission(NanoMission mission)
         {
+            if (activeMissions.Contains(mission))
+                return; // Prevent duplicates
+
             mission.StartMission();
 
             // Assign player to GoTo objectives (optional but handy)
@@ -29,7 +32,7 @@ namespace Nanodogs.API.NanoMissions
             if (player == null && Camera.main != null)
                 player = Camera.main.transform;
 
-            if (player != null)
+            if (player != null && firstMission != null && !activeMissions.Contains(firstMission))
             {
                 StartMission(firstMission);
             }

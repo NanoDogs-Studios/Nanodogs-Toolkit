@@ -12,9 +12,6 @@ namespace Nanodogs.UniversalScripts
         [Tooltip("Maximum distance to interactable objects.")]
         public float interactDistance = 3f;
 
-        [Tooltip("Layer mask for interactable objects.")]
-        public LayerMask interactableLayer;
-
         [Tooltip("Camera used for raycasting.")]
         public Camera cam;
 
@@ -28,12 +25,12 @@ namespace Nanodogs.UniversalScripts
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // center of screen
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, interactDistance, interactableLayer))
+            if (Physics.Raycast(ray, out hit, interactDistance))
             {
                 NanoInteractable interactable = hit.collider.GetComponent<NanoInteractable>();
                 if (interactable != null && interactable.isCurrentlyInteractable)
                 {
-                    // Optional: highlight object here
+                    interactable.hovering = true;
 
                     if (interactKey != null && interactKey.action.WasPerformedThisFrame())
                     {

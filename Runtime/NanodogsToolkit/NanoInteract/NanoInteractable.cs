@@ -6,6 +6,9 @@ namespace Nanodogs.UniversalScripts
     [RequireComponent(typeof(Collider))] // Ensures it has a collider
     public class NanoInteractable : MonoBehaviour
     {
+        [HideInInspector]
+        public bool hovering = false;
+
         [Header("Interaction Settings")]
         [Tooltip("Can the player currently interact with this object?")]
         public bool isCurrentlyInteractable = true;

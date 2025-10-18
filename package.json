@@ -6,11 +6,10 @@
 
   "description": "Nanodogs Toolkit is a set of unity tools that help Nanodogs build their games. With the Aurora Modding SDK, you to can create content for Nanodogs's Games!'",
 
-  "version": "0.5.7",
+  "version": "0.5.71",
 
   "dependencies": {
-    "com.unity.addressables": "1.19.19",
-    "com.dgreenheck.openfracture": "https://github.com/dgreenheck/OpenFracture.git"
+    "com.unity.addressables": "1.19.19"
   },
 
   "author": {

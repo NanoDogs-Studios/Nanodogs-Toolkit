@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Nanodogs.Tooklit::Nanodogs.API.Explosion.ExplosionSettings
   radius: 15
   forceMode: 0
-  force: 5000
+  force: 1000
   upwardsModifier: 1
   useGravity: 1
   damage: 50

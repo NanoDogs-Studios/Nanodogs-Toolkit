@@ -22,6 +22,7 @@ namespace Nanodogs.API.Explosion
             if (settings.explosionEffectPrefab != null)
             {
                 GameObject explosionEffect = MonoBehaviour.Instantiate(settings.explosionEffectPrefab, position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+                explosionEffect.tag = "Explosion";
                 MonoBehaviour.Destroy(explosionEffect, 4f); // Destroy effect after 2 seconds
             }
             if (useCameraShake)
@@ -39,6 +40,12 @@ namespace Nanodogs.API.Explosion
                 {
                     rb.AddExplosionForce(settings.force, position, settings.radius, settings.upwardsModifier, settings.forceMode);
                     rb.useGravity = settings.useGravity;
+                }
+
+                if(hit.CompareTag("Fracturer"))
+                {
+                    Fracture frac = hit.GetComponent<Fracture>();
+                    frac.CauseFracture();
                 }
 
                 // Apply damage to objects with a Health component

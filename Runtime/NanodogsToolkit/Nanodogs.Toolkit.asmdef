@@ -2,7 +2,8 @@
     "name": "Nanodogs.Tooklit",
     "rootNamespace": "",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:7b1a8d9f4355a214f9a95471fa510c86"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

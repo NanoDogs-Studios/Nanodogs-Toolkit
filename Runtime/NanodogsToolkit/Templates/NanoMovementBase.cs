@@ -13,7 +13,7 @@ namespace Nanodogs.UniversalScripts
         public float rayDistance = 1.1f;
         public Rigidbody rb;
 
-        private void Start()
+        protected void Start()
         {
             rb = GetComponent<Rigidbody>();
             rb.freezeRotation = true; // prevent tipping

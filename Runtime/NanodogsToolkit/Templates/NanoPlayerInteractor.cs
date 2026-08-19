@@ -19,15 +19,15 @@ namespace Nanodogs.UniversalScripts
         private bool hasHit;
         private RaycastHit lastHit;
 
-        // Keep track of what we’re hovering over
+        // Keep track of what weï¿½re hovering over
         private NanoInteractable currentHovered;
 
-        private void Update()
+        protected void Update()
         {
             CheckForInteraction();
         }
 
-        private void CheckForInteraction()
+        protected void CheckForInteraction()
         {
             lastRay = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             hasHit = Physics.Raycast(lastRay, out lastHit, interactDistance);
@@ -53,7 +53,7 @@ namespace Nanodogs.UniversalScripts
                 }
                 else
                 {
-                    // We hit something that's not interactable — stop hovering the old one
+                    // We hit something that's not interactable ï¿½ stop hovering the old one
                     if (currentHovered != null)
                     {
                         currentHovered.hovering = false;
@@ -63,7 +63,7 @@ namespace Nanodogs.UniversalScripts
             }
             else
             {
-                // No hit at all — stop hovering if needed
+                // No hit at all ï¿½ stop hovering if needed
                 if (currentHovered != null)
                 {
                     currentHovered.hovering = false;
@@ -74,7 +74,7 @@ namespace Nanodogs.UniversalScripts
             Debug.DrawRay(lastRay.origin, lastRay.direction * interactDistance, hasHit ? Color.green : Color.red);
         }
 
-        private void OnDrawGizmos()
+        protected void OnDrawGizmos()
         {
             if (cam == null) return;
 

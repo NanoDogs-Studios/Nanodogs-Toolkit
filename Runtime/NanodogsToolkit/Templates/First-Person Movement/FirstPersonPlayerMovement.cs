@@ -40,25 +40,25 @@ namespace Nanodogs.UniversalScripts
         private AudioSource audioSource;
         private float footstepTimer;
 
-        private void OnEnable()
+        protected void OnEnable()
         {
             if (moveAction != null) moveAction.action.Enable();
             if (jumpAction != null) jumpAction.action.Enable();
         }
 
-        private void OnDisable()
+        protected void OnDisable()
         {
             if (moveAction != null) moveAction.action.Disable();
             if (jumpAction != null) jumpAction.action.Disable();
         }
 
-        private void Start()
+        protected void Start()
         {
             audioSource = GetComponent<AudioSource>();
             audioSource.spatialBlend = 1f; // 3D sound
         }
 
-        private void Update()
+        protected void Update()
         {
             if (moveAction == null || jumpAction == null) return;
 
@@ -92,7 +92,7 @@ namespace Nanodogs.UniversalScripts
         }
 
 
-        private void FixedUpdate()
+        protected void FixedUpdate()
         {
             if (!onLadder)
             {
@@ -109,7 +109,7 @@ namespace Nanodogs.UniversalScripts
             }
         }
 
-        private void HandleLadder(Vector2 moveInput)
+        protected void HandleLadder(Vector2 moveInput)
         {
             if (!onLadder) return;
 
@@ -130,7 +130,7 @@ namespace Nanodogs.UniversalScripts
             }
         }
 
-        private void HandleFootsteps(Vector2 moveInput)
+        protected void HandleFootsteps(Vector2 moveInput)
         {
             if (!IsGrounded() || onLadder) return;
 
@@ -145,7 +145,7 @@ namespace Nanodogs.UniversalScripts
             }
         }
 
-        private void PlayFootstepSound()
+        protected void PlayFootstepSound()
         {
             if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, footstepRayDistance, footstepLayerMask))
             {
@@ -158,7 +158,7 @@ namespace Nanodogs.UniversalScripts
             }
         }
 
-        private AudioClip GetClipForSurface(string tag)
+        protected AudioClip GetClipForSurface(string tag)
         {
             foreach (var surface in footstepSurfaces)
             {
@@ -174,7 +174,7 @@ namespace Nanodogs.UniversalScripts
             return null;
         }
 
-        public void SetLadderData(Vector3 forward, Vector3 center)
+        protected void SetLadderData(Vector3 forward, Vector3 center)
         {
             ladderForward = forward;
             ladderCenter = center;

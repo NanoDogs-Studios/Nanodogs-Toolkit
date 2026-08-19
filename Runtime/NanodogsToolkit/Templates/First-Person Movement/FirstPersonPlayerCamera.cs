@@ -1,4 +1,4 @@
-// © 2025 Nanodogs Studios. All rights reserved.
+// ï¿½ 2025 Nanodogs Studios. All rights reserved.
 
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -35,8 +35,8 @@ namespace Nanodogs.UniversalScripts
         public AnimationCurve bobCurveY;
 
         private float bobTimer;
-        private Vector3 initialCameraLocalPos;
-        private float bobWeight;
+        protected Vector3 initialCameraLocalPos;
+        protected float bobWeight;
 
         [Header("Landing Bob Settings")]
         public bool enableLandingBob = true;
@@ -56,33 +56,33 @@ namespace Nanodogs.UniversalScripts
         public float groundCheckDistance = 0.2f;
         public Transform groundCheckOrigin;
 
-        private void OnEnable()
+        protected void OnEnable()
         {
             if (lookAction != null) lookAction.action.Enable();
             if (moveAction != null) moveAction.action.Enable();
         }
 
-        private void OnDisable()
+        protected void OnDisable()
         {
             if (lookAction != null) lookAction.action.Disable();
             if (moveAction != null) moveAction.action.Disable();
         }
 
-        private void Start()
+        protected void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             initialCameraLocalPos = transform.localPosition;
         }
 
-        private void Update()
+        protected void Update()
         {
             HandleLook();
             HandleHeadBob();
             HandleLandingBob();
         }
 
-        private void HandleLook()
+        protected void HandleLook()
         {
             if (lookAction == null || yawPivot == null) return;
 
@@ -113,7 +113,7 @@ namespace Nanodogs.UniversalScripts
             yawPivot.Rotate(Vector3.up * finalDelta.x);
         }
 
-        private void HandleHeadBob()
+        protected void HandleHeadBob()
         {
             if (!enableHeadBob || moveAction == null) return;
 
@@ -140,7 +140,7 @@ namespace Nanodogs.UniversalScripts
             transform.localPosition = Vector3.Lerp(transform.localPosition, basePos, bobFadeSpeed * Time.deltaTime);
         }
 
-        private void HandleLandingBob()
+        protected void HandleLandingBob()
         {
             if (!enableLandingBob || playerRigidbody == null || groundCheckOrigin == null) return;
 
@@ -171,7 +171,7 @@ namespace Nanodogs.UniversalScripts
             wasGroundedLastFrame = isGrounded;
         }
 
-        private void OnDrawGizmosSelected()
+        protected void OnDrawGizmosSelected()
         {
             if (groundCheckOrigin != null)
             {

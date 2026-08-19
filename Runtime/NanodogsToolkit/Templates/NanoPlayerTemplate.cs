@@ -9,7 +9,7 @@ namespace Nanodogs.UniversalScripts
         public Transform cameraTransform;
         public Transform playerBodyTransform;
 
-        private void Start()
+        protected void Start()
         {
             DontDestroyOnLoad(gameObject);
         }

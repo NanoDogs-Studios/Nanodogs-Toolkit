@@ -1,10 +1,10 @@
 {
   "name": "com.nanodogs.toolkit",
-  "displayName": "Nanodogs Toolkit",
-  "description": "Nanodogs Toolkit is a set of unity tools that help Nanodogs build their games.",
+  "displayName": "Nanopaw Toolkit",
+  "description": "Nanopaw Toolkit is a set of unity tools that help the Nanopaw team build their games.",
   "unity": "6000.2",
   "unityRelease": "14f1",
-  "documentationUrl": "https://github.com/NanoDogs-Studios/Nanodogs-Toolkit/wiki",
+  "documentationUrl": "https://github.com/Nanopaw-Studios/Nanopaw-Toolkit/wiki",
   "hideInEditor": "false",
   "version": "0.7.6",
 
@@ -15,8 +15,8 @@
   },
 
   "author": {
-    "name": "Nanodogs Studios",
-    "email": "nanodogs.inquires@gmail.ccom",
-    "url": "https://nanodogs-studios.github.io"
+    "name": "Nanopaw Studios",
+    "email": "nanodogs.inquires@gmail.com",
+    "url": "https://nanopaw-studios.github.io"
   }
 }

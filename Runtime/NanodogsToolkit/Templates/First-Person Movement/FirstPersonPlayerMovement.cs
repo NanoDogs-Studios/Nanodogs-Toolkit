@@ -174,7 +174,7 @@ namespace Nanodogs.UniversalScripts
             return null;
         }
 
-        protected void SetLadderData(Vector3 forward, Vector3 center)
+        public void SetLadderData(Vector3 forward, Vector3 center)
         {
             ladderForward = forward;
             ladderCenter = center;
